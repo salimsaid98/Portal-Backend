@@ -14,12 +14,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 @Data
 @Entity
 @Table(name = "Talent_tb")
-public class Talent implements Serializable {
+public class Talent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long talent_id;
@@ -31,7 +32,7 @@ public class Talent implements Serializable {
     // private Set<Talent_info> talent;
     
     @ManyToMany(mappedBy = "talents",fetch = FetchType.LAZY)
-    @JsonBackReference
+    @JsonIgnore
     private Set<Expert> experts;
 
 }

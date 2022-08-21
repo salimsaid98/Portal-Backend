@@ -8,16 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Model.Expert;
+import com.example.demo.Model.Talent;
 import com.example.demo.exception.Datanotfound;
 import com.example.demo.repository.ExpertRepo;
+import com.example.demo.repository.TalentRepo;
 
 @Service
 public class ExpertService {
     
     private final ExpertRepo expertRepo;
+
+   @Autowired 
+   private final TalentRepo talentRepo;
+   
 @Autowired
-    public ExpertService(ExpertRepo expertRepo){
+    public ExpertService(ExpertRepo expertRepo ,TalentRepo talentRepo){
             this.expertRepo = expertRepo;
+            this.talentRepo = talentRepo;
     }
 
 

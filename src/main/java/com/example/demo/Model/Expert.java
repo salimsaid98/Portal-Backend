@@ -23,7 +23,7 @@ import lombok.Data;
 @Entity
 @Table(name = "Expert_tb")
 
-public class Expert implements Serializable {
+public class Expert{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
    private long ex_id;
@@ -52,7 +52,7 @@ public class Expert implements Serializable {
                 @JoinColumn(name = "talent_id", referencedColumnName = "talent_id")
         }
 )
-@JsonManagedReference
+
 private Set<Talent> talents;
 
 
