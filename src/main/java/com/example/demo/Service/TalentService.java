@@ -6,16 +6,15 @@ import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.demo.Model.Talent;
 import com.example.demo.exception.Datanotfound;
 import com.example.demo.repository.TalentRepo;
 
 @Service
 public class TalentService {
-    
-    private final TalentRepo talentRepo;
     @Autowired
+    private final TalentRepo talentRepo;
+    
     public TalentService(TalentRepo talentRepo){
         this.talentRepo = talentRepo;
     }
@@ -27,7 +26,9 @@ public class TalentService {
 }
 
 public Talent save(Talent talent){
-    return talentRepo.save(talent);
+//    Talent talent2 = new Talent();
+//    talent2.setExperts(talent.getExperts());
+     return talentRepo.save(talent);
 }
 
 public Talent getTalent(Long id){

@@ -1,6 +1,10 @@
 package com.example.demo.DTO;
 
+import java.util.List;
+import java.util.Set;
+
 import com.example.demo.Model.Expert;
+import com.example.demo.Model.Talent_info;
 
 import lombok.Data;
 
@@ -11,5 +15,5 @@ public class TalentDTO {
     private String workexp;
     private String certification;
     private String biography;
-    private Expert expert;
+      
 }

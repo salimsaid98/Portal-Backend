@@ -28,11 +28,12 @@ public class Talent {
     private String workexp;
     private String certification;
     private String biography;
-    // @OneToMany(cascade = CascadeType.ALL)
-    // private Set<Talent_info> talent;
-    
-    @ManyToMany(mappedBy = "talents",fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Expert> experts;
+    
+    // @ManyToMany(mappedBy = "talents",fetch = FetchType.LAZY)
+    // // @JsonIgnore
+    // private Expert experts;
 
 }

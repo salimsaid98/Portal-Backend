@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.example.demo.Model.Talent;
+import com.example.demo.Model.Talent_info;
 
 import lombok.Data;
 
@@ -20,6 +21,4 @@ public class ExpertDTO {
    private int phone;
    private LocalDate dob;
    private String password;  
-
-   private Set<Talent> talents = new HashSet<>();
 }

@@ -20,5 +20,5 @@ public class ExpertDTOresponse {
     private int phone;
     private LocalDate dob;
     private String password; 
-    private Talent talent;
+    
 }

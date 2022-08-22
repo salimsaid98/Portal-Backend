@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DTO.TalentDTO;
+import com.example.demo.Model.Expert;
 import com.example.demo.Model.Talent;
 import com.example.demo.Service.TalentService;
 
@@ -26,9 +27,8 @@ public class TalentControler {
 
     @PostMapping("/")
     public ResponseEntity save(@RequestBody TalentDTO talentDTO){
-        TalentDTO talentDTO2 = new TalentDTO();
-        talentDTO2.setExpert(talentDTO.getExpert());
-        Talent talent = modelMapper.map(talentDTO2, Talent.class);
+
+        Talent talent = modelMapper.map(talentDTO, Talent.class);
 
         return ResponseEntity.ok(talentService.save(talent));
     }
@@ -38,6 +38,7 @@ public class TalentControler {
         TalentDTO talentDTO = new TalentDTO();
         for(Talent talent : talentService.getTalents()){
             talentDTO = modelMapper.map(talent, TalentDTO.class);
+            
             list.add(talentDTO);
         }
         return ResponseEntity.ok(list);
