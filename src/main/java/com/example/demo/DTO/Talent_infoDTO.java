@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class Talent_infoDTO {
     private Long id;
-   private Talent talent;
-   private Expert expert;
+    private Long ex_id;
+    private long talent;
 }

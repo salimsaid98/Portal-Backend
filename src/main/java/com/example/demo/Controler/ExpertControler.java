@@ -2,9 +2,6 @@ package com.example.demo.Controler;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.DTO.ExpertDTO;
 import com.example.demo.DTO.ExpertDTOresponse;
 import com.example.demo.Model.Expert;
-import com.example.demo.Model.Talent;
 import com.example.demo.Service.ExpertService;
 import com.example.demo.Service.TalentService;
-import com.example.demo.repository.TalentRepo;
-
-
-
 
 @RestController
 @RequestMapping("api/expert")

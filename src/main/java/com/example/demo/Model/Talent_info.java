@@ -1,6 +1,8 @@
 package com.example.demo.Model;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,7 +26,9 @@ public class Talent_info implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    // @Column(name = "ex_id")
     // private Long ex_id;
+    // @Column(name = "talent_id")
     // private Long talent_id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

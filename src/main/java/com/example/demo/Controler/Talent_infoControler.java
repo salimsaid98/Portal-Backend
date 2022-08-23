@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DTO.TalentDTO;
 import com.example.demo.DTO.Talent_infoDTO;
 import com.example.demo.Model.Talent;
 import com.example.demo.Model.Talent_info;
@@ -25,16 +26,20 @@ public class Talent_infoControler {
     @Autowired
     private ModelMapper modelMapper;
 @GetMapping("/")
-    public  List<Talent_info> gTalent_infos(){
-        return talent_infoService.getTalent_infos();
-    }
+   public ResponseEntity getll(){
+        List<Talent_infoDTO> list = new ArrayList<>();
+        Talent_infoDTO talent_infoDTO = new Talent_infoDTO();
+        talent_infoDTO = null;
+        for(Talent_info talent_info:talent_infoService.getTalent_infos()){
+            talent_infoDTO = modelMapper.map(talent_info, Talent_infoDTO.class);
+            talent_infoDTO.setEx_id(talent_info.getExpert().getEx_id());
+            list.add(talent_infoDTO);
+        }
+        return ResponseEntity.ok().body(list);
+   }
     @PostMapping("/")
-    public ResponseEntity<Talent_info> save(@RequestBody Talent_infoDTO talent_infoDTO){
-        Talent_info talent_info2 = new Talent_info();
-        talent_info2.setExpert(talent_infoDTO.getExpert());
-        talent_info2.setTalent(talent_infoDTO.getTalent());
-        Talent_info talent_info = modelMapper.map(talent_info2, Talent_info.class);
-        return ResponseEntity.ok().body(talent_infoService.save(talent_info));
+    public ResponseEntity save(@RequestBody Talent_infoDTO talent_infoDTO){
+        return ResponseEntity.ok().body(talent_infoService.save(talent_infoDTO));
 
     }
 
