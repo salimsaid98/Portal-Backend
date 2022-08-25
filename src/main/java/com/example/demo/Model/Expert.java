@@ -3,10 +3,12 @@ import java.time.LocalDate;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Data;
 @Data
@@ -26,12 +28,14 @@ public class Expert{
    private int phone;
    private LocalDate dob;
    private String password;
+
    @OneToMany(cascade = CascadeType.ALL)
    private Set<Talent_info> expert;
-//    @OneToOne
-//    @MapsId
-//    @JoinColumn(name = "ex_id")
-//    private Education education;
+   @OneToOne(fetch = FetchType.LAZY,
+   cascade =  CascadeType.ALL,
+   mappedBy = "expert")
+   private Education education;
+
 
 // @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 // @JoinTable(name = "Expert_Talent_tb",

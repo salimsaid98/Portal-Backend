@@ -1,12 +1,5 @@
 package com.example.demo.DTO;
-
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
-
-import com.example.demo.Model.Talent;
-import com.example.demo.Model.Talent_info;
-
 import lombok.Data;
 
 @Data
