@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,9 +24,10 @@ public class Education {
     private String un_name;
     private String place;
     private LocalDate year;
-    @OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, optional = false)
-    @JoinColumn(name = "ex_id", nullable = false)
-    private Expert expert;
+    // @OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, optional = false)
+    // @JoinColumn(name = "ex_id", nullable = false)
+    @ManyToOne
+     private Expert expert;
     
      
 

@@ -12,17 +12,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
-
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 @Data
 @Entity
 @Table(name = ("Talent_info"))
-public class Talent_info implements Serializable{
+public class Talent_info {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,17 +30,17 @@ public class Talent_info implements Serializable{
     // @Column(name = "talent_id")
     // private Long talent_id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ex_id",referencedColumnName = "ex_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    Expert expert;
+    @ManyToOne()
+    // @JoinColumn(name = "ex_id",referencedColumnName = "ex_id", nullable = false)
+    // @OnDelete(action = OnDeleteAction.CASCADE)
+    // // @JsonIgnore
+    private Expert expert;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "talent_id", referencedColumnName = "talent_id" ,nullable = false )
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    Talent talent;
+    @ManyToOne()
+    // @JoinColumn(name = "talent_id", referencedColumnName = "talent_id" ,nullable = false )
+    // @OnDelete(action = OnDeleteAction.CASCADE)
+    // @JsonIgnore
+    private Talent talent;
 
 
 }

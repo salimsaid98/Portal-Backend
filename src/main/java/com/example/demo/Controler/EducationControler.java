@@ -21,9 +21,10 @@ public class EducationControler {
     @Autowired
     private final EducationService educationService;
     @PostMapping("/")
-    public ResponseEntity save(@RequestBody EducationDTO educationDTO){
-        educationService.sava(educationDTO);
+    public ResponseEntity<EducationDTO> save(@RequestBody EducationDTO educationDTO){
+         educationService.save(educationDTO);
         return ResponseEntity.ok().body(educationDTO);
+        
     }
     @GetMapping("/")
     public ResponseEntity getall(){

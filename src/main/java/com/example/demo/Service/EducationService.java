@@ -21,15 +21,16 @@ import lombok.Data;
 public class EducationService {
   @Autowired
     private final ModelMapper modelMapper;
-
+   @Autowired
     private final EducationRepo educationRepo;
 
-  public Education sava(EducationDTO educationDTO){
-    Expert expert = new Expert();
-    expert.setEx_id(educationDTO.getEx_id());
+  public Education save(EducationDTO educationDTO){
+    // System.out.println(educationDTO);
+    // expert.setEx_id(educationDTO.getEx_id());
     Education education = modelMapper.map(educationDTO, Education.class);
-    education.setExpert(expert);
-    return educationRepo.save(education);
+    education.setExpert(new Expert(educationDTO.getEx_id()));
+    Education education2 = educationRepo.save(education);
+    return  education2;
   }
 
     public List<EducationDTO> getall(){

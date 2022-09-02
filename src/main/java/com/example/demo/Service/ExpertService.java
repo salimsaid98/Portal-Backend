@@ -48,6 +48,7 @@ public Expert edit(Long id ,Expert expert){
      expert2.setF_name(expert.getF_name());
      expert2.setS_name(expert.getS_name());
      expert2.setL_name(expert.getL_name());
+     expert2.setGander(expert.getGander());
      expert2.setAddress(expert.getAddress());
      expert2.setEmail(expert.getEmail());
      expert2.setDob(expert.getDob());

@@ -8,10 +8,11 @@ public class ExpertDTO {
    private String f_name;
    private String s_name;
    private String l_name;
+   private String gander;
    private String email;
    private String address;
    private String status;
-   private int phone;
+   private String phone;
    private LocalDate dob;
    private String password;  
 }

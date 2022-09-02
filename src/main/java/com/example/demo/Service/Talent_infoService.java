@@ -33,11 +33,11 @@ public Talent_info save(Talent_infoDTO talent_infoDTO){
     Talent talent = new Talent();
     Expert expert = new Expert();
     expert.setEx_id(talent_infoDTO.getEx_id());
-    talent.setTalent_id(talent_infoDTO.getTalent());
+    talent.setTalent_id(talent_infoDTO.getTalent_id());
     Talent_info talent_info = modelMapper.map(talent_infoDTO, Talent_info.class);
     talent_info.setExpert(expert);
     talent_info.setTalent(talent);
-    log.info(talent_info.toString());
+    // log.info(talent_info.toString());
     return talent_infoRepo.save(talent_info);
 }
 

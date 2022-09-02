@@ -50,4 +50,8 @@ public Talent edit(Long id ,Talent talent){
     return talentRepo.save(talent2);
 }
 
+public List<Talent> getsp(String name){
+    return talentRepo.getBySpecialization(name);
+}
+
 }
