@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.DTO.TalentDTO;
 import com.example.demo.DTO.Talent_infoDTO;
 import com.example.demo.DTO.Talent_infoRespondDTO;
+import com.example.demo.Model.Education;
 import com.example.demo.Model.Expert;
 import com.example.demo.Model.Talent;
 import com.example.demo.Model.Talent_info;
@@ -52,6 +53,8 @@ public class Talent_infoControler {
     List<Talent_infoRespondDTO> list = new ArrayList<>();
     Talent_infoRespondDTO talent_infoRespondDTO = new Talent_infoRespondDTO();
     List<Talent_info> talent_infos = talent_infoService.getTalent_infos();
+    Education education = new Education();
+    
     for(Talent_info talent_info :talent_infos){
          talent_infoRespondDTO = modelMapper.map(talent_info, Talent_infoRespondDTO.class);
          
@@ -68,6 +71,7 @@ public class Talent_infoControler {
         talent_infoRespondDTO.setCertification(talent_info.getTalent().getCertification());
         talent_infoRespondDTO.setWorkexp(talent_info.getTalent().getWorkexp());
         talent_infoRespondDTO.setBiography(talent_info.getTalent().getBiography());
+        talent_infoRespondDTO.setUn_name(education.getUn_name());
         list.add(talent_infoRespondDTO);
     }
     return ResponseEntity.ok().body(list);

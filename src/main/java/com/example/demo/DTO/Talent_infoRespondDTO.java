@@ -23,4 +23,7 @@ public class Talent_infoRespondDTO {
     private String workexp;
     private String certification;
     private String biography;
+    private String un_name;
+    private String place;
+    private LocalDate year;
 }

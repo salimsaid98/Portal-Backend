@@ -32,7 +32,6 @@ public class ExpertControler {
     @PostMapping("/")
     public ResponseEntity save(@RequestBody ExpertDTO expertDTO){
         Expert expert = modelMapper.map(expertDTO, Expert.class);
-
         return ResponseEntity.ok(expertService.save(expert));
     }
    @GetMapping("/")

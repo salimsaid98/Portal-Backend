@@ -42,5 +42,4 @@ public class Talent_info {
     // @JsonIgnore
     private Talent talent;
 
-
 }
